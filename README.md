@@ -9,11 +9,7 @@ To build or rebuild the Docker image type (the HTTP_PROXY variable must be set i
 
     docker build --build-arg http_proxy=$HTTP_PROXY --build-arg https_proxy=$HTTPS_PROXY --build-arg no_proxy=$NO_PROXY -t extract-to-text .
 
-To run the container in batch mode:
-
-    docker run --rm -v <absolute-path-on-host>:/data extract-to-text
-
-To run the container as a RESTFul service:
+To run the container as a service:
 
     docker run --rm -p 5000:5000 extract-to-text    
  
