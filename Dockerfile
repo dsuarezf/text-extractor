@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-MAINTAINER David Suárez "dsuarezf@indra.es"
+MAINTAINER David Suárez "david.suarez.fuentes@gmail.com"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
   apt-utils \
