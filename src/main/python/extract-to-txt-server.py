@@ -8,6 +8,9 @@ from werkzeug.utils import secure_filename
 
 ALLOWED_EXTENSIONS = {'doc', 'docx', 'pdf', 'html', 'htm'}
 
+# Logging configuration
+logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.DEBUG)
+
 # Flask configuration workflow: it loads default config present in config.py and tries to override it by using an
 # environment variable that points to an external config file
 app = Flask(__name__)
@@ -63,8 +66,8 @@ def convert_input_to_txt(file):
         command = 'html2text -utf8 -style pretty'
 
     else:
-        logging.error("File extension not recognized: %s", file.filename)
-        return "File not supported."
+        logging.error("File format not supported: %s", file.filename)
+        return "File format not supported."
 
     logging.info("Executing %s", command)
     output = Popen(command.split(), stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate(input=file.read())[0]
@@ -74,5 +77,4 @@ def convert_input_to_txt(file):
 
 
 if __name__ == '__main__':
-    logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.DEBUG)
     app.run()
