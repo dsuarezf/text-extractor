@@ -13,9 +13,6 @@ To run the container as a service:
 
     docker run --rm -p 5000:5000 extract-to-text    
  
-By default, this image expects to have input documents in **/data/documents** and output documents in **/data/txt**
-directories inside **/data** which should be mounted from host using an absolute path.
-
 To run the container interactively:
 
     docker run -it --rm --entrypoint bash -v <absolute-path-on-host>:/data extract-to-text
