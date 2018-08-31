@@ -21,7 +21,7 @@ RUN pip install --upgrade pip setuptools wheel
 RUN pip install --upgrade -r /app/requirements.txt
 
 # Set environment variables
-ENV FLASK_APP=/app/src/main/python/extract-to-txt-server.py
+ENV FLASK_APP=/app/src/main/python/extract_to_txt_server.py
 
 # Expose the application's port
 EXPOSE 5000
