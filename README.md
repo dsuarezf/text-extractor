@@ -15,7 +15,7 @@ To run the container as a service:
  
 To run the container interactively:
 
-    docker run -it --rm --entrypoint bash -v <absolute-path-on-host>:/data extract-to-text
+    docker run -it --rm --entrypoint bash extract-to-text
 
 How to test the upload endpoint:
 
