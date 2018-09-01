@@ -1,9 +1,12 @@
 # extract-to-text
 
-The **extract-to-text** module extracts plain text from PDF, Word or HTML documents storing that text in *.txt files
-with the same name as the input document.
+The **extract-to-text** is a REST service that extracts plain text from PDF, Word or HTML documents.
 
-This module can be executed as a single Python script or within a container.
+The service can be executed as a single Python application or within a container.
+
+To execute as a Python application:
+
+    gunicorn --bind 0.0.0.0:5000 --chdir src/main/python wsgi:app
 
 To build or rebuild the Docker image type (the HTTP_PROXY variable must be set if executed behind a proxy):
 
