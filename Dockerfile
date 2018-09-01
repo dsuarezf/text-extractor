@@ -14,14 +14,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /app
-COPY . /app
+COPY /src/main/python .
+COPY requirements.txt .
 
 RUN pip install --upgrade pip setuptools wheel
 
-RUN pip install --upgrade -r /app/requirements.txt
+RUN pip install --upgrade -r requirements.txt
 
 # Set environment variables
-ENV FLASK_APP=/app/src/main/python/extract_to_txt_server.py
+ENV FLASK_APP=extract_to_txt_server.py
 
 # Expose the service's port
 EXPOSE 5000
