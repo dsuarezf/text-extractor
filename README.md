@@ -14,7 +14,7 @@ To build or rebuild the Docker image type (the HTTP_PROXY variable must be set i
 
 To run the container as a service:
 
-    docker run --rm -p 5000:5000 extract-to-text    
+    docker run --rm -p 5000:5000 extract-to-text extract-to-text
  
 To run the container interactively:
 
