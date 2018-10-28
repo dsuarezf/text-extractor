@@ -1,6 +1,10 @@
 # extract-to-text
 
-The **extract-to-text** is a REST service that extracts plain text from PDF, Word or HTML documents.
+The **extract-to-text** service extracts plain text from files in different formats. The following formats are supported:
+
+* PDF (*.pdf)
+* Word (*.doc, *.docx)
+* HTML (*.html, *.htm)
 
 The service can be executed as a single Python application or within a container.
 
@@ -19,6 +23,10 @@ To run the container as a service:
 To run the container interactively:
 
     docker run -it --rm --entrypoint bash extract-to-text
+
+How to test if the service is running:
+
+    curl http://<host>:5000/
 
 How to test the upload endpoint:
 
