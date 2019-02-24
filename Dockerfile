@@ -40,4 +40,4 @@ ENV FLASK_APP=extract_to_txt_server.py
 EXPOSE 5000
 
 # Start the service
-CMD ["gunicorn", "-b 0.0.0.0:5000", "-w 4", "wsgi:app"]
+CMD ["gunicorn", "-b 0.0.0.0:5000", "-k gevent", "-w 4", "wsgi:app"]
