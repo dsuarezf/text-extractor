@@ -1,6 +1,6 @@
-# extract-to-text
+# text-extractor
 
-The **extract-to-text** service extracts plain text from files in different formats. The following formats are supported:
+The **text-extractor** service extracts plain text from files in different formats. The following formats are supported:
 
 * PDF (*.pdf)
 * Word (*.doc, *.docx)
