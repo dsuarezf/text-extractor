@@ -1,10 +1,3 @@
-class Config(object):
-    DEBUG = False
-    TESTING = False
-
-
-class ProductionConfig(Config):
-    DEBUG = False
 """ Different configurations to be used by the Flask server
 """
 
@@ -37,12 +30,4 @@ class TestingConfig(Config):  # pylint: disable=too-few-public-methods
     """
     Testing configuration
     """
-    TESTING = True
-
-
-class DevelopmentConfig(Config):
-    DEBUG = True
-
-
-class TestingConfig(Config):
     TESTING = True
