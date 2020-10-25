@@ -1,29 +1,33 @@
-## Welcome to GitHub Pages
+# text-extractor
 
-You can use the [editor on GitHub](https://github.com/dsuarezf/text-extractor/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+The **text-extractor** service extracts plain text from files in different formats. The following formats are supported:
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+* PDF (*.pdf)
+* Word (*.doc, *.docx)
+* HTML (*.html, *.htm)
 
-### Markdown
+The service can be executed as a single Python application or within a container.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+To execute as a Python application:
 
-```markdown
-Syntax highlighted code block
+    gunicorn --bind 0.0.0.0:5000 --chdir src/main/python wsgi:app
 
-# Header 1
-## Header 2
-### Header 3
+To build or rebuild the Docker image type (the HTTP_PROXY variable must be set if executed behind a proxy):
 
-- Bulleted
-- List
+    docker build --build-arg http_proxy=$HTTP_PROXY --build-arg https_proxy=$HTTPS_PROXY --build-arg no_proxy=$NO_PROXY -t extract-to-text .
 
-1. Numbered
-2. List
+To run the container as a service:
 
-**Bold** and _Italic_ and `Code` text
+    docker run --rm -p 5000:5000 extract-to-text extract-to-text
+ 
+To run the container interactively:
 
-[Link](url) and ![Image](src)
-```
+    docker run -it --rm --entrypoint bash extract-to-text
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+How to test if the service is running:
+
+    curl http://<host>:5000/
+
+How to test the upload endpoint:
+
+    curl -F file=@<file>  http://localhost:5000/api/v1.0/documents/extract
