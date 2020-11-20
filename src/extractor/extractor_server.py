@@ -56,7 +56,7 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=lo
 
 # Flask configuration workflow: it loads default config present in config.py and
 # tries to override it by using an environment variable that points to an external config file
-app = Flask(__name__)
+app = Flask(__name__, instance_relative_config=True)
 app.config.from_object('config.ProductionConfig')
 app.config.from_envvar('TEXT-EXTRACTOR-SETTINGS', silent=True)
 
