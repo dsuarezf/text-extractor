@@ -43,6 +43,6 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Unit test
       run: |
-        pip install pytest pytest-cov
-        # python -m pytest --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
-        python -m pytest
+        python -m coverage run --source="src/extractor/." src/tests/test_app.py
+        coverage report --include="src/extractor/*.py"
+        coverage xml -o src/tests/cobertura.xml
