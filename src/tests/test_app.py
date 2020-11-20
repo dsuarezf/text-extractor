@@ -3,9 +3,9 @@
 import sys
 import unittest
 
-sys.path.insert(0, 'main/python')  # Execute test from project's root directory
+sys.path.insert(0, 'src')  # Execute test from project's root directory
 
-from extractor_server import app
+from extractor.extractor_server import app
 
 
 class TestTextExtractor(unittest.TestCase):

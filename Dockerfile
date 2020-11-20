@@ -31,10 +31,10 @@ RUN pip install --upgrade -r requirements.txt
 
 # Copy resources on previous layers
 WORKDIR /app
-COPY /src/main/python .
+COPY /src/extractor .
 
 # Set environment variables
-ENV FLASK_APP=extract_to_txt_server.py
+ENV FLASK_APP=extractor_server.py
 
 # Expose the application's port
 EXPOSE 5000
