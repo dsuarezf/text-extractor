@@ -14,7 +14,7 @@ container.
 
 To execute as a Python application:
 
-    python -m src.extractor.wsgi
+    python src/extractor/wsgi.py
 
 or using *gunicorn*:
 
