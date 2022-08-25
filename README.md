@@ -18,7 +18,7 @@ To execute as a Python application:
 
 or using *gunicorn*:
 
-    gunicorn --bind 0.0.0.0:5000 --chdir src/main/python wsgi:app
+    gunicorn --bind 0.0.0.0:5000 --chdir src/extractor wsgi:app
 
 To build or rebuild the Docker image type (the HTTP_PROXY variable must be set
 if executed behind a proxy):
